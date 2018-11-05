@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.ahstu.web.pojo.CategorySecond" table="categorysecond">
+		<id name="csid">
+			<generator class="native"/>
+		</id>
+		
+		<property name="csname"/>
+		<!-- 二级分类与一级分类的关联 -->
+		<many-to-one name="topcategory" lazy="false" class="com.ahstu.web.pojo.Topcategory" column="cid"></many-to-one>
+	
+		<!-- 二级分类与商品的关联 -->
+		<set name="products">
+			<key column="csid"/>
+			<one-to-many class="com.ahstu.web.pojo.Product"/>
+		</set>
+	</class>
+</hibernate-mapping>
