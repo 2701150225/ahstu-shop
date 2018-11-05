@@ -20,13 +20,13 @@
 	<div class="span5">
 		<div class="logo">
 			<a>
-				<img src="${pageContext.request.contextPath}/image/r___________renleipic_01/logo.gif" alt="传智播客">
+				<img src="${pageContext.request.contextPath}/image/r___________renleipic_01/logo.png" alt="传智播客">
 			</a>
 		</div>
 	</div>
 	<div class="span9">
 <div class="headerAd">
-					<img src="image\r___________renleipic_01/header.jpg" alt="正品保障" title="正品保障" height="50" width="320">
+					<img src="image/header.jpg" alt="正品保障" title="正品保障" height="50" width="320">
 </div>	</div>
 	
 	<%@ include file="menu.jsp" %>

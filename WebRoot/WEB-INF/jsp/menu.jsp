@@ -38,7 +38,7 @@
 	<ul class="mainNav">
 		<li><a href="${ pageContext.request.contextPath }/index.action">首页</a> |</li>
 		<s:iterator var="c" value="#session.cList">
-			<li><a href="${ pageContext.request.contextPath }/product_findByCid.action?cid=<s:property value="#c.cid"/>&page=1"><s:property value="#c.cname"/></a> |</li>
+			<li><a href="${ pageContext.request.contextPath }/product_findCid.action?cid=<s:property value="#c.cid"/>&page=1"><s:property value="#c.cname"/></a> |</li>
 		</s:iterator>
 
 	</ul>

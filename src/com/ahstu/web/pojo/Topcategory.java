@@ -1,9 +1,12 @@
 
 package com.ahstu.web.pojo;
 
+import java.util.HashSet;
+import java.util.Set;
+
 /**
  * 一级分类
- * @author wss
+ * @安科 王宿生
  *
  */
 public class Topcategory {
@@ -26,8 +29,18 @@ public class Topcategory {
 	}
 	
 	
+	 public Set<CategorySecond> getCategorySeconds() {
+		return categorySeconds;
+	}
+
+	public void setCategorySeconds(Set<CategorySecond> categorySeconds) {
+		this.categorySeconds = categorySeconds;
+	}
+
+
 	 private Integer cid;
 	 private String cname;
-	
+	 private Set<CategorySecond> categorySeconds = new HashSet<CategorySecond>();
+		
 	
 }
