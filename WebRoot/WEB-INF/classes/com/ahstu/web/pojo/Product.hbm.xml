@@ -15,6 +15,7 @@
 		<property name="pdesc"/>
 		<property name="is_hot"/>
 		<property name="pdate"/>
+		<many-to-one name="categorySecond" lazy="false"  class="com.ahstu.web.pojo.CategorySecond" column="csid"></many-to-one>
    </class>
    
    </hibernate-mapping>

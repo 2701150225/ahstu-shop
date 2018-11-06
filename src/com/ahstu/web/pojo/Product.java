@@ -22,7 +22,7 @@ public class Product {
 	private Integer is_hot;
 	private Date pdate;
 	// 二级分类的外键:使用二级分类的对象.
-	
+	private CategorySecond categorySecond;
 	public Integer getPid() {
 		return pid;
 	}
@@ -70,6 +70,12 @@ public class Product {
 	}
 	public void setPdate(Date pdate) {
 		this.pdate = pdate;
+	}
+	public CategorySecond getCategorySecond() {
+		return categorySecond;
+	}
+	public void setCategorySecond(CategorySecond categorySecond) {
+		this.categorySecond = categorySecond;
 	}
 	
 	

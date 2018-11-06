@@ -34,7 +34,7 @@
 				<s:iterator var="c" value="#session.cList">
 						<dl>
 							<dt>
-								<a href="${pageContext.request.contextPath}/product_findByCid.action?cid=<s:property value="#c.cid"/>&page=1"><s:property value="#c.cname"/></a>
+								<a href="${pageContext.request.contextPath}/product_findCid.action?cid=<s:property value="#c.cid"/>&page=1"><s:property value="#c.cname"/></a>
 							</dt>
 								<s:iterator var="cs" value="#c.categorySeconds">
 									<dd>
@@ -53,7 +53,7 @@
 						<ul>
 							<s:iterator var="p" value="pageBean.list">
 								<li>
-										<a href="${ pageContext.request.contextPath }/product_findByPid.action?pid=<s:property value="#p.pid"/>">
+										<a href="${ pageContext.request.contextPath }/product_findPid.action?pid=<s:property value="#p.pid"/>">
 											<img src="${pageContext.request.contextPath}/<s:property value="#p.image"/>" width="170" height="170"  style="display: inline-block;">
 											   
 											<span style='color:green'>
@@ -74,13 +74,13 @@
 			<span>第 <s:property value="pageBean.page"/>/<s:property value="pageBean.totalPage"/> 页</span>
 		<s:if test="cid != null">
 			<s:if test="pageBean.page != 1">
-				<a href="${ pageContext.request.contextPath }/product_findByCid.action?cid=<s:property value="cid"/>&page=1" class="firstPage">&nbsp;</a>
-				<a href="${ pageContext.request.contextPath }/product_findByCid.action?cid=<s:property value="cid"/>&page=<s:property value="pageBean.page-1"/>" class="previousPage">&nbsp;</a>
+				<a href="${ pageContext.request.contextPath }/product_findCid.action?cid=<s:property value="cid"/>&page=1" class="firstPage">&nbsp;</a>
+				<a href="${ pageContext.request.contextPath }/product_findCid.action?cid=<s:property value="cid"/>&page=<s:property value="pageBean.page-1"/>" class="previousPage">&nbsp;</a>
 			</s:if>
 			
 			<s:iterator var="i" begin="1" end="pageBean.totalPage">
 				<s:if test="pageBean.page != #i">
-					<a href="${ pageContext.request.contextPath }/product_findByCid.action?cid=<s:property value="cid"/>&page=<s:property value="#i"/>"><s:property value="#i"/></a>
+					<a href="${ pageContext.request.contextPath }/product_findCid.action?cid=<s:property value="cid"/>&page=<s:property value="#i"/>"><s:property value="#i"/></a>
 				</s:if>
 				<s:else>
 					<span class="currentPage"><s:property value="#i"/></span>
@@ -88,8 +88,8 @@
 			</s:iterator>
 			
 			<s:if test="pageBean.page != pageBean.totalPage">	
-				<a class="nextPage" href="${ pageContext.request.contextPath }/product_findByCid.action?cid=<s:property value="cid"/>&page=<s:property value="pageBean.page+1"/>">&nbsp;</a>
-				<a class="lastPage" href="${ pageContext.request.contextPath }/product_findByCid.action?cid=<s:property value="cid"/>&page=<s:property value="pageBean.totalPage"/>">&nbsp;</a>
+				<a class="nextPage" href="${ pageContext.request.contextPath }/product_findCid.action?cid=<s:property value="cid"/>&page=<s:property value="pageBean.page+1"/>">&nbsp;</a>
+				<a class="lastPage" href="${ pageContext.request.contextPath }/product_findCid.action?cid=<s:property value="cid"/>&page=<s:property value="pageBean.totalPage"/>">&nbsp;</a>
 			</s:if>
 		</s:if>	
 		<s:if test="csid != null">
