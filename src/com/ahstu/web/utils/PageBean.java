@@ -7,18 +7,19 @@ import java.util.List;
  *
  */
 public class PageBean<T> {
-	private int currentPage;// 当前页数
+	private int page;// 当前页数
+	
 	private int totalCount;// 总记录数
 	private int totalPage;// 总页数
-	private int pageSize;// 每页记录数
+	private int limit;// 每页记录数
 	private List<T> list;// 分页列表的集合
 
-	public int getCurrentPage() {
-		return currentPage;
+public int getPage() {
+		return page;
 	}
 
-	public void setCurrentPage(int currentPage) {
-		this.currentPage = currentPage;
+	public void setPage(int page) {
+		this.page = page;
 	}
 
 	public int getTotalCount() {
@@ -37,12 +38,14 @@ public class PageBean<T> {
 		this.totalPage = totalPage;
 	}
 
-	public int getPageSize() {
-		return pageSize;
+	
+
+	public int getLimit() {
+		return limit;
 	}
 
-	public void setPageSize(int pageSize) {
-		this.pageSize = pageSize;
+	public void setLimit(int limit) {
+		this.limit = limit;
 	}
 
 	public List<T> getList() {
