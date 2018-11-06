@@ -50,28 +50,70 @@ public class ProductService {
 
 
 
-	public PageBean<Product> findPageCid(Integer cid, int currentPage) {
-		PageBean<Product> pageBean = new PageBean<Product>(); 
-		pageBean.setCurrentPage(currentPage);//设置当前页数
-		int pageSize =8;
-		pageBean.setPageSize(pageSize);//设置每页记录数
-		int totalCount=0;
-		totalCount=productDao.findCountPid(cid);
-		pageBean.setTotalCount(totalCount);//设置总记录数
-		int totalPage=0;                   
-		//Math.ceil(totalCount/pageSize);ceil向上取整
-		if(totalCount % pageSize == 0){
-			totalPage = totalCount / pageSize;
+	public PageBean<Product> findPageCid(Integer cid, int page) {
+		PageBean<Product> pageBean = new PageBean<Product>();
+		// 设置当前页数:
+		pageBean.setPage(page);
+		// 设置每页显示记录数:
+		int limit = 8;
+		pageBean.setLimit(limit);
+		//  设置总记录数:
+		int totalCount = 0 ;
+		totalCount = productDao.findCountCid(cid);
+		pageBean.setTotalCount(totalCount);
+		// 设置总页数:
+		int totalPage = 0;
+		// Math.ceil(totalCount / limit);
+		if(totalCount % limit == 0){
+			totalPage = totalCount / limit;
 		}else{
-			totalPage = totalCount / pageSize  + 1;
+			totalPage = totalCount / limit + 1;
 		}
-	    pageBean.setTotalPage(totalPage);//设置总页面数
-	    
-	    int start=(currentPage-1)*pageSize;
-	     List<Product> list=productDao.findPageCid(cid,start,pageSize);//每页显示的数据集合
-	     pageBean.setList(list);
+		pageBean.setTotalPage(totalPage);
+		// 每页显示的数据集合:
+		// 从哪开始:
+		int begin = (page - 1) * limit;
+		List<Product> list = productDao.findPageCid(cid,begin,limit);
+		pageBean.setList(list);
 		return pageBean;
 	}
+
+
+
+
+	public PageBean<Product> findPageCsid(Integer csid, int page) {
+		PageBean<Product> pageBean = new PageBean<Product>();
+		// 设置当前页数:
+		pageBean.setPage(page);
+		// 设置每页显示记录数:
+		int limit = 8;
+		pageBean.setLimit(limit);
+		//  设置总记录数:
+		int totalCount = 0 ;
+		totalCount = productDao.findCountCsid(csid);
+		pageBean.setTotalCount(totalCount);
+		// 设置总页数:
+		int totalPage = 0;
+		// Math.ceil(totalCount / limit);
+		if(totalCount % limit == 0){
+			totalPage = totalCount / limit;
+		}else{
+			totalPage = totalCount / limit + 1;
+		}
+		pageBean.setTotalPage(totalPage);
+		// 每页显示的数据集合:
+		// 从哪开始:
+		int begin = (page - 1) * limit;
+		List<Product> list = productDao.findPageCsid(csid,begin,limit);
+		pageBean.setList(list);
+		return pageBean;
+	}
+
+
+
+
+	
+	
 
 
 
