@@ -7,13 +7,13 @@
     <class name="com.ahstu.web.pojo.OrderItem" table="orteritem">
     <id name="itemid">
     <generator class="native"></generator></id>
-    <property name="total"></property>
+    <property name="subtotal"></property>
     <property name="count"></property>
-    <!-- 关联关系 与商品的关系 -->
-<many-to-one name="product" class="com.ahstu.web.pojo.Product" column="pid"></many-to-one>
+    <!-- 关联关系 与商品多对一的关系 -->
+<many-to-one name="product"  lazy="false" class="com.ahstu.web.pojo.Product" column="pid"></many-to-one>
 
-<!-- 关联关系 与订单的关系 -->
-<many-to-one name="order" class="com.ahstu.web.pojo.Order" column="pid"></many-to-one>
+<!-- 关联关系 与订单多对一的关系 -->
+<many-to-one name="order" class="com.ahstu.web.pojo.Order" column="oid" />
     </class>
     
     

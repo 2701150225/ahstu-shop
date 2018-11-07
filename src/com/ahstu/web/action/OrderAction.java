@@ -21,4 +21,10 @@ public class OrderAction  extends ActionSupport implements ModelDriven<Order>{
 		this.orderService = orderService;
 	}
 
+	
+	 public String save() {
+		 
+		 
+		 return "save";
+	 }
 }

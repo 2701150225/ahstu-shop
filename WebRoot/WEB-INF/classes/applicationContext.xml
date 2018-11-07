@@ -129,7 +129,9 @@
 		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
        
-     <bean id="orderDao"  class="com.ahstu.web.dao.OrderDao"></bean>
-         <property name="sessionFactory" ref="sessionFactory"></property>
+     <bean id="orderDao"  class="com.ahstu.web.dao.OrderDao">
+     <property name="sessionFactory" ref="sessionFactory"></property>
+     </bean>
+        
 	
 </beans>

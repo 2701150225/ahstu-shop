@@ -46,5 +46,11 @@
 			<result name="removeCart">/WEB-INF/jsp/cart.jsp</result>
 			<result name="myCart">/WEB-INF/jsp/cart.jsp</result>
 		</action>
-	</package>
+		
+		<!-- 订单的Action -->
+		<action name="order_*" class="orderAction"  method="{1}">
+		
+		<result name="save">/WEB-INF/jsp/order.jsp</result>
+		</action>
+	</package>	
 </struts>

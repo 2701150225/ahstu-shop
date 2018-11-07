@@ -1,5 +1,5 @@
 package com.ahstu.web.pojo;
-
+import com.ahstu.web.pojo.Product;
 /**
  * 订单项的实体类
  * 

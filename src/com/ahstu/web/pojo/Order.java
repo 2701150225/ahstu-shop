@@ -8,7 +8,7 @@ package com.ahstu.web.pojo;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
-
+import com.ahstu.web.pojo.User;
 public class Order {
 	private Integer oid;
 	private Double total;

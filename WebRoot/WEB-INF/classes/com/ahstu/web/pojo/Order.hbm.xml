@@ -15,14 +15,14 @@
 		<property name="phone"></property>
 		<property name="addr"></property>
 
-		<!-- 关联关系   订单与用户一对多的关系-->
+		<!-- 关联关系   订单与用户多对一的关系-->
 
-		<many-to-one name="user" class="com.ahstu.web.pojo.User" column="uid""></many-to-one>
+			<many-to-one name="user" lazy="false" class="com.ahstu.web.pojo.User" column="uid"/>
         <!-- 关联关系  订单与订单项一对多的关系 -->
-        <set name="orderItems">
-        <key column="uid">
+        <set name="orderItems"  lazy="false" cascade="save-update">
+        <key column="oid">
         </key>
-       <many-to-many class="aom.ahstu.web.pojo.OrderItem" ></many-to-many>
+       <one-to-many class="com.ahstu.web.pojo.OrderItem" />
          </set>
 	</class>
 </hibernate-mapping>
