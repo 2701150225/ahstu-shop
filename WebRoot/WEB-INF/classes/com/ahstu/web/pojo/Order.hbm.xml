@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.ahstu.web.pojo.Order" table="orders">
+		<id name="oid">
+			<generator class="native"></generator>
+		</id>
+		<!-- 普通属性 -->
+		<property name="ordertime"></property>
+		<property name="total"></property>
+		<property name="state"></property>
+		<property name="name"></property>
+		<property name="phone"></property>
+		<property name="addr"></property>
+
+		<!-- 关联关系   订单与用户一对多的关系-->
+
+		<many-to-one name="user" class="com.ahstu.web.pojo.User" column="uid""></many-to-one>
+        <!-- 关联关系  订单与订单项一对多的关系 -->
+        <set name="orderItems">
+        <key column="uid">
+        </key>
+       <many-to-many class="aom.ahstu.web.pojo.OrderItem" ></many-to-many>
+         </set>
+	</class>
+</hibernate-mapping>

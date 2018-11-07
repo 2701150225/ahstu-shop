@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+    
+    <hibernate-mapping>
+    <class name="com.ahstu.web.pojo.OrderItem" table="orteritem">
+    <id name="itemid">
+    <generator class="native"></generator></id>
+    <property name="total"></property>
+    <property name="count"></property>
+    <!-- 关联关系 与商品的关系 -->
+<many-to-one name="product" class="com.ahstu.web.pojo.Product" column="pid"></many-to-one>
+
+<!-- 关联关系 与订单的关系 -->
+<many-to-one name="order" class="com.ahstu.web.pojo.Order" column="pid"></many-to-one>
+    </class>
+    
+    
+    
+    </hibernate-mapping>

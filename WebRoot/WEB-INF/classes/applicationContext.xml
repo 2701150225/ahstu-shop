@@ -48,6 +48,8 @@
 				<value>com/ahstu/web/pojo/Topcategory.hbm.xml</value>
 				<value>com/ahstu/web/pojo/Product.hbm.xml</value>
 	            <value>com/ahstu/web/pojo/CategorySecond.hbm.xml</value>
+	          <value>com/ahstu/web/pojo/Order.hbm.xml</value>
+	      <value>com/ahstu/web/pojo/OrderItem.hbm.xml</value>
 			</list>
 		</property>
 	</bean>
@@ -88,7 +90,10 @@
     <bean  id="cartAction"  class="com.ahstu.web.action.CartAction" scope="prototype">
          <property name="productService" ref="productService"/>
     </bean>
-
+     <!-- 订单模块的Action -->
+     <bean  id="orderAction" class="com.ahstu.web.action.OrderAction" scope="prototype">
+        <property name="orderService"  ref="orderService"></property>
+     </bean>
 
 	
 	<!-- Service的配置 =========================== -->
@@ -103,7 +108,12 @@
 	<bean id="productService" class="com.ahstu.web.service.ProductService">
 		<property name="productDao" ref="productDao"></property>
 	</bean>
+	
+	
+ <bean id="orderService" class="com.ahstu.web.service.OrderService">
+ <property name="orderDao" ref="orderDao"></property>
 
+ </bean>
 
 
 	<!-- Dao的配置 =========================== -->
@@ -118,6 +128,8 @@
 	<bean id="productDao" class="com.ahstu.web.dao.ProductDao">
 		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
-
-
+       
+     <bean id="orderDao"  class="com.ahstu.web.dao.OrderDao"></bean>
+         <property name="sessionFactory" ref="sessionFactory"></property>
+	
 </beans>
