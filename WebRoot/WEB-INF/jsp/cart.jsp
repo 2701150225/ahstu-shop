@@ -18,7 +18,7 @@
 	<div class="span5">
 		<div class="logo">
 			<a href="http://localhost:8080/mango/">
-				<img src="${pageContext.request.contextPath}/image/r___________renleipic_01/logo.pnf" alt="安科趣淘">
+				<img src="${pageContext.request.contextPath}/image/r___________renleipic_01/logo.png" alt="安科趣淘">
 			</a>
 		</div>
 	</div>
@@ -30,7 +30,7 @@
 	<%@ include file="menu.jsp" %>
 	
 </div>	<div class="container cart">
-		<s:if test="#session.cart.cartItems.size() != 0">
+		<s:if test="#session.cart.shopItems.size() != 0">
 		<div class="span24">
 			<div class="step step1">
 				购物车信息
@@ -45,25 +45,25 @@
 						<th>小计</th>
 						<th>操作</th>
 					</tr>
-						<s:iterator var="cartItem" value="#session.cart.cartItems">
+						<s:iterator var="shopItem" value="#session.cart.shopItems">
 						<tr>
 							<td width="60">
-								<img src="${pageContext.request.contextPath}/<s:property value="#cartItem.product.image"/>">
+								<img src="${pageContext.request.contextPath}/<s:property value="#shopItem.product.image"/>">
 							</td>
 							<td>
-								<a target="_blank"><s:property value="#cartItem.product.pname"/></a>
+								<a target="_blank"><s:property value="#shopItem.product.pname"/></a>
 							</td>
 							<td>
-								￥<s:property value="#cartItem.product.shop_price"/>
+								￥<s:property value="#shopItem.product.shop_price"/>
 							</td>
 							<td class="quantity" width="60">
-								<s:property value="#cartItem.count"/>
+								<s:property value="#shopItem.count"/>
 							</td>
 							<td width="140">
-								<span class="subtotal">￥<s:property value="#cartItem.subtotal"/></span>
+								<span class="subtotal">￥<s:property value="#shopItem.subtotal"/></span>
 							</td>
 							<td>
-								<a href="${ pageContext.request.contextPath }/cart_removeCart.action?pid=<s:property value="#cartItem.product.pid"/>" class="delete">删除</a>
+								<a href="${ pageContext.request.contextPath }/cart_removeCart.action?pid=<s:property value="#shopItem.product.pid"/>" class="delete">删除</a>
 							</td>
 						</tr>
 						</s:iterator>
