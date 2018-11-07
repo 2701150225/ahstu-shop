@@ -10,6 +10,7 @@
 	<package name="shop" extends="struts-default" namespace="/">
 		<global-results>
 			<result name="msg">/WEB-INF/jsp/msg.jsp</result>
+		<result name="login">/WEB-INF/jsp/login.jsp</result>
 		</global-results>
 	
 		<!-- 配置首页访问的Action -->
