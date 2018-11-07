@@ -84,7 +84,10 @@
     <bean id="productAction" class="com.ahstu.web.action.ProductAction" scope="prototype">
 		<property name="productService" ref="productService"/>
 	</bean>
-
+    <!-- 购物车模块的Action -->
+    <bean  id="cartAction"  class="com.ahstu.web.action.CartAction" scope="prototype">
+         <property name="productService" ref="productService"/>
+    </bean>
 
 
 	

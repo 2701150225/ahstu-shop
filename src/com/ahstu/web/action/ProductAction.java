@@ -28,6 +28,10 @@ public class ProductAction extends ActionSupport implements ModelDriven<Product>
 		this.csid = csid;
 	}
 
+public Integer getCsid() {
+		return csid;
+	}
+
 public void setPage(int page) {
 		this.page = page;
 	}
