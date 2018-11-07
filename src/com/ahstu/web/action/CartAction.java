@@ -14,10 +14,11 @@ import com.opensymphony.xwork2.ActionSupport;
  *
  */
 public class CartAction extends ActionSupport {
-  
-	private Integer pid;//接收商品ID
-	private Integer count;//接收数量
+
+	private Integer pid;// 接收商品ID
+	private Integer count;// 接收数量
 	private ProductService productService;
+
 	public void setPid(Integer pid) {
 		this.pid = pid;
 	}
@@ -30,41 +31,49 @@ public class CartAction extends ActionSupport {
 		this.productService = productService;
 	}
 
+	// 将商品添加到购物车中的方法
 	public String addCart() {
-		ShopItem shopItem =new ShopItem();//封装shopItem对象
-		shopItem.setCount(count);//设置数量
-		Product product= productService.findPid(pid);//根据pid查询商品
-		 shopItem.setProduct(product);//设置商品
-		 Cart cart=getCart();//将商品添加到购物车
-		 cart.addCart(shopItem);//购物车存在session中
-		 
+		ShopItem shopItem = new ShopItem();// 封装shopItem对象
+		shopItem.setCount(count);// 设置数量
+		Product product = productService.findPid(pid);// 根据pid查询商品
+		shopItem.setProduct(product);// 设置商品
+		Cart cart = getCart();// 将商品添加到购物车
+		cart.addCart(shopItem);// 购物车存在session中
+
 		return "addCart";
 	}
-	//移除购物车商品的方法
-	  public String remove() {
-		 Cart cart=getCart();//获得购物车对象
-		 cart.removeCart(pid);//调用购物车remove方法
-		 return "removeCart";
-		 
-		 
-	  }
-//清空购物车的方法	  
-	  public String clear() {
-		  Cart cart=getCart();//获得购物车对象
-		  cart.clearCart();//调用购物车clear方法
-		  
-		  return "clearCart";
-		  
-	  }
+
+	// 移除购物车商品的方法
+	public String removeCart() {
+		Cart cart = getCart();// 获得购物车对象
+		cart.removeCart(pid);// 调用购物车remove方法
+		return "removeCart";
+
+	}
+
+    //清空购物车的方法	  
+	public String clearCart() {
+		Cart cart = getCart();// 获得购物车对象
+		cart.clearCart();// 调用购物车clear方法
+
+		return "clearCart";
+
+	}
+
+	//我的购物车的方法
+ public String myCart() {
+	 
+	 return "myCart";
+ }
 	
-   //从session中获得购物车
+	// 从session中获得购物车
 	private Cart getCart() {
-	  Cart cart=(Cart) ServletActionContext.getRequest().getSession().getAttribute("cart");
-	  if(cart == null) {
-		 cart= new Cart();
-		  ServletActionContext.getRequest().getSession().setAttribute("cart",cart);
-	  }
-		
+		Cart cart = (Cart) ServletActionContext.getRequest().getSession().getAttribute("cart");
+		if (cart == null) {
+			cart = new Cart();
+			ServletActionContext.getRequest().getSession().setAttribute("cart", cart);
+		}
+
 		return cart;
 	}
 }
