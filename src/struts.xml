@@ -52,6 +52,8 @@
 		<action name="order_*" class="orderAction"  method="{1}">
 		
 		<result name="save">/WEB-INF/jsp/order.jsp</result>
+		<result name="findUid">/WEB-INF/jsp/myorder.jsp</result>
+		
 		</action>
 	</package>	
 </struts>

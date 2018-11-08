@@ -10,8 +10,12 @@ import com.ahstu.web.pojo.OrderItem;
 import com.ahstu.web.pojo.ShopItem;
 import com.ahstu.web.pojo.User;
 import com.ahstu.web.service.OrderService;
+import com.ahstu.web.utils.PageBean;
+import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
+
+
 
 /**
  * 订单管理Action
@@ -20,7 +24,8 @@ import com.opensymphony.xwork2.ModelDriven;
  */
 public class OrderAction  extends ActionSupport implements ModelDriven<Order>{
     public Order order =new Order();//模型驱动使用的对象
-    private OrderService orderService;
+    private OrderService orderService;//注入orderService
+    private Integer page;//接收Page
 	public Order getModel() {
 		// TODO Auto-generated method stub
 		return order;
@@ -30,6 +35,9 @@ public class OrderAction  extends ActionSupport implements ModelDriven<Order>{
 		this.orderService = orderService;
 	}
 
+	public void setPage(Integer page) {
+		this.page = page;
+	}
 	//生成订单执行的方法
 	 public String save() {
 			// Order order = new Order();
@@ -67,5 +75,17 @@ public class OrderAction  extends ActionSupport implements ModelDriven<Order>{
 			}
 			orderService.save(order);
 		 return "save";
+	 }
+	 
+	 //用户订单列表查询执行的方法
+	 public String  findUid() {
+		 //根据用户Id查询
+		User user=(User) ServletActionContext.getRequest().getSession().getAttribute("existUser");
+		
+		//调用Service
+		PageBean<Order>  pageBean= orderService.findPageUid(user.getUid(),page );
+		ActionContext.getContext().getValueStack().set("pageBean", pageBean);
+		
+		return "findUid";
 	 }
 }
