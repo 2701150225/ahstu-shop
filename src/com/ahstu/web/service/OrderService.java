@@ -57,5 +57,9 @@ public class OrderService {
 		
 		return pageBean;
 	}
+	public Order findOid(Integer oid) {
+		// TODO Auto-generated method stub
+		return orderDao.findOid(oid);
+	}
 
 }

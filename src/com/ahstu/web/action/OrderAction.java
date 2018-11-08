@@ -88,4 +88,12 @@ public class OrderAction  extends ActionSupport implements ModelDriven<Order>{
 		
 		return "findUid";
 	 }
+	 //根据订单id查询订单详细
+	public  String  findOid() {
+		 
+		order=orderService.findOid(order.getOid());
+		
+		return "findOid";
+	}
+	 
 }

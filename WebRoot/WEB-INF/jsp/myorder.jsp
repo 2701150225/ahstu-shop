@@ -62,7 +62,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							</font>
 							&nbsp;&nbsp;&nbsp;&nbsp;<font color="red">
 								<s:if test="#order.state == 1">
-									<a href="${ pageContext.request.contextPath }/order_findOid.action?oid=<s:property value="#order.oid" />">付款</a>
+									<a href="${ pageContext.request.contextPath }/order_findOid.action?oid=<s:property value="#order.oid" />">待付款</a>
 								</s:if>
 								<s:if test="#order.state == 2">
 									已付款
