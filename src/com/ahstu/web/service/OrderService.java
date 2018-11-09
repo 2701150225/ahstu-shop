@@ -57,9 +57,16 @@ public class OrderService {
 		
 		return pageBean;
 	}
+	
+	//根据订单id查询订单
 	public Order findOid(Integer oid) {
 		// TODO Auto-generated method stub
 		return orderDao.findOid(oid);
+	}
+	
+	//修改订单
+	public void update(Order currOrder) {
+	orderDao.update(currOrder);
 	}
 
 }
