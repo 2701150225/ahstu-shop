@@ -103,11 +103,16 @@
 		<property name="orderService" ref="orderService"></property>
 	</bean>
 
-	<!-- 后台模块的Action -->
+	<!-- 后台模块登录的Action -->
 
 	<bean id="adminUserAction"
 		class="com.ahstu.web.action.AdminUserAction" scope="prototype">
 		<property name="adminUserService" ref="adminUserService"></property>
+	</bean>
+	
+	<!-- 后台一级分类管理Action -->
+	<bean id="adminTopcategoryAction" class="com.ahstu.web.action.AdminTopcategoryAction"  scope="prototype">
+              <property name="topcategoryService" ref="topcategoryService"></property>	
 	</bean>
 
 	<!-- Service的配置 =========================== -->

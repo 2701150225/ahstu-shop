@@ -25,13 +25,13 @@ TH {
 	COLOR: #000000
 }
 </style>
-		<link href="${pageContext.request.contextPath}/css/Style.css" rel="stylesheet" type="text/css">
+		<link href="${pageContext.request.contextPath}/css/Style1.css" rel="stylesheet" type="text/css">
 	</HEAD>
 	<body>
 		<table width="100%" height="70%"  border="0" cellspacing="0" cellpadding="0">
 			<tr>
 				<td>
-					<img width="100%" src="${pageContext.request.contextPath}/images/top_01.jpg">
+					<img src="${pageContext.request.contextPath}/images/top_01.png">
 				</td>
 
 				<td width="100%" background="${pageContext.request.contextPath}/images/top_100.jpg">

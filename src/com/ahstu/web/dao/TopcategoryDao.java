@@ -26,5 +26,10 @@ public class TopcategoryDao extends HibernateDaoSupport {
 		
 		return list;
 	}
+//dao层保存一级分类的方法
+	
+	public void save(Topcategory topcategory) {
+	this.getHibernateTemplate().save(topcategory);
+	}
 
 }
