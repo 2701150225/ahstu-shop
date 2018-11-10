@@ -10,7 +10,7 @@
 	<package name="shop" extends="struts-default" namespace="/">
 		<global-results>
 			<result name="msg">/WEB-INF/jsp/msg.jsp</result>
-			<result name="login">/WEB-INF/jsp/login.jsp</result>
+            <result name="login">/admin/index.jsp</result>
 		</global-results>
 
 		<!-- 配置首页访问的Action -->
@@ -54,6 +54,12 @@
 			<result name="save">/WEB-INF/jsp/order.jsp</result>
 			<result name="findUid">/WEB-INF/jsp/myorder.jsp</result>
 			<result name="findOid">/WEB-INF/jsp/order.jsp</result>
+		</action>
+		<!-- 后台登录管理的Action -->
+		<action name="adminUser_*" class="adminUserAction" method="{1}" >
+            <result name="loginFail">/admin/index.jsp</result>
+			<result name="loginSuccess" >/admin/home.jsp</result>
+		
 		</action>
 	</package>
 </struts>

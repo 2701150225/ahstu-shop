@@ -47,9 +47,11 @@
 				<value>com/ahstu/web/pojo/User.hbm.xml</value>
 				<value>com/ahstu/web/pojo/Topcategory.hbm.xml</value>
 				<value>com/ahstu/web/pojo/Product.hbm.xml</value>
-	            <value>com/ahstu/web/pojo/CategorySecond.hbm.xml</value>
-	          <value>com/ahstu/web/pojo/Order.hbm.xml</value>
-	      <value>com/ahstu/web/pojo/OrderItem.hbm.xml</value>
+				<value>com/ahstu/web/pojo/CategorySecond.hbm.xml</value>
+				<value>com/ahstu/web/pojo/Order.hbm.xml</value>
+				<value>com/ahstu/web/pojo/OrderItem.hbm.xml</value>
+				<value>com/ahstu/web/pojo/AdminUser.hbm.xml</value>
+
 			</list>
 		</property>
 	</bean>
@@ -68,52 +70,70 @@
 	<!-- Action的配置 =========================== -->
 
 	<!-- 首页访问的Action -->
-	<bean id="indexAction" class="com.ahstu.web.action.IndexAction" scope="prototype">
+	<bean id="indexAction" class="com.ahstu.web.action.IndexAction"
+		scope="prototype">
 		<property name="topcategoryService" ref="topcategoryService" />
 		<property name="productService" ref="productService" />
 	</bean>
 
 	<!-- 配置验证码Action -->
-	<bean id="checkImgAction" class="com.ahstu.web.action.CheckImgAction" scope="prototype">
+	<bean id="checkImgAction"
+		class="com.ahstu.web.action.CheckImgAction" scope="prototype">
 	</bean>
 
 	<!-- 用户模块的Action -->
-	<bean id="userAction" class="com.ahstu.web.action.UserAction" scope="prototype">
-   	<!-- 注入Service -->
+	<bean id="userAction" class="com.ahstu.web.action.UserAction"
+		scope="prototype">
+		<!-- 注入Service -->
 		<property name="userService" ref="userService" />
 	</bean>
 	<!-- 商品模块的Action -->
-    <bean id="productAction" class="com.ahstu.web.action.ProductAction" scope="prototype">
-		<property name="productService" ref="productService"/>
+	<bean id="productAction"
+		class="com.ahstu.web.action.ProductAction" scope="prototype">
+		<property name="productService" ref="productService" />
 	</bean>
-    <!-- 购物车模块的Action -->
-    <bean  id="cartAction"  class="com.ahstu.web.action.CartAction" scope="prototype">
-         <property name="productService" ref="productService"/>
-    </bean>
-     <!-- 订单模块的Action -->
-     <bean  id="orderAction" class="com.ahstu.web.action.OrderAction" scope="prototype">
-        <property name="orderService"  ref="orderService"></property>
-     </bean>
+	<!-- 购物车模块的Action -->
+	<bean id="cartAction" class="com.ahstu.web.action.CartAction"
+		scope="prototype">
+		<property name="productService" ref="productService" />
+	</bean>
+	<!-- 订单模块的Action -->
+	<bean id="orderAction" class="com.ahstu.web.action.OrderAction"
+		scope="prototype">
+		<property name="orderService" ref="orderService"></property>
+	</bean>
 
-	
+	<!-- 后台模块的Action -->
+
+	<bean id="adminUserAction"
+		class="com.ahstu.web.action.AdminUserAction" scope="prototype">
+		<property name="adminUserService" ref="adminUserService"></property>
+	</bean>
+
 	<!-- Service的配置 =========================== -->
 	<bean id="userService" class="com.ahstu.web.service.UserService">
 		<property name="userDao" ref="userDao" />
 	</bean>
 
-	<bean id="topcategoryService" class="com.ahstu.web.service.TopcategoryService">
+	<bean id="topcategoryService"
+		class="com.ahstu.web.service.TopcategoryService">
 		<property name="topcategoryDao" ref="topcategoryDao"></property>
 	</bean>
 
-	<bean id="productService" class="com.ahstu.web.service.ProductService">
+	<bean id="productService"
+		class="com.ahstu.web.service.ProductService">
 		<property name="productDao" ref="productDao"></property>
 	</bean>
-	
-	
- <bean id="orderService" class="com.ahstu.web.service.OrderService">
- <property name="orderDao" ref="orderDao"></property>
 
- </bean>
+
+	<bean id="orderService" class="com.ahstu.web.service.OrderService">
+		<property name="orderDao" ref="orderDao"></property>
+	</bean>
+
+	<bean id="adminUserService"
+		class="com.ahstu.web.service.AdminUserService">
+		<property name="adminUserDao" ref="adminUserDao"></property>
+	</bean>
 
 
 	<!-- Dao的配置 =========================== -->
@@ -128,10 +148,17 @@
 	<bean id="productDao" class="com.ahstu.web.dao.ProductDao">
 		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
-       
-     <bean id="orderDao"  class="com.ahstu.web.dao.OrderDao">
-     <property name="sessionFactory" ref="sessionFactory"></property>
-     </bean>
-        
-	
+
+	<bean id="orderDao" class="com.ahstu.web.dao.OrderDao">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+
+
+
+
+	<bean id="adminUserDao" class="com.ahstu.web.dao.AdminUserDao">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+
+
 </beans>
