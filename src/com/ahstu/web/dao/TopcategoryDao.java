@@ -32,4 +32,19 @@ public class TopcategoryDao extends HibernateDaoSupport {
 	this.getHibernateTemplate().save(topcategory);
 	}
 
+	public Topcategory findCid(Integer cid) {
+		// TODO Auto-generated method stub
+		return this.getHibernateTemplate().get(Topcategory.class, cid);
+	}
+
+	public void delete(Topcategory topcategory) {
+		this.getHibernateTemplate().delete(topcategory);
+		
+	}
+    //dao层修改一级分类的方法
+	public void update(Topcategory topcategory) {
+          this.getHibernateTemplate().update(topcategory);
+		
+	}
+
 }

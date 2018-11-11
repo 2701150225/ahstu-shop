@@ -58,13 +58,17 @@
 		<!-- 后台登录管理的Action -->
 		<action name="adminUser_*" class="adminUserAction" method="{1}" >
             <result name="loginFail">/admin/index.jsp</result>
-			<result name="loginSuccess" >/admin/home.jsp</result>
+			<result name="loginSuccess"  type="redirect" >/admin/home.jsp</result>
 			</action>
 		<!-- 后台一级分类管理Action -->
 		
 		<action name="adminTopcategory_*"  class="adminTopcategoryAction" method="{1}">
 		  <result name="findAll">/admin/category/list.jsp</result>
 		  <result name="save"  type="redirectAction">adminTopcategory_findAll.action</result>
+		 <result name="delete"  type="redirectAction">adminTopcategory_findAll.action</result>
+		 <result name="edit" >/admin/category/edit.jsp</result>
+		 <result name="update"  type="redirectAction">adminTopcategory_findAll.action</result>
+		
 		</action>
 	</package>
 </struts>

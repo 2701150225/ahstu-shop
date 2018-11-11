@@ -37,6 +37,27 @@ public class TopcategoryService {
 	}
 
 
+//根据Cid查询一级分类
+	public Topcategory findCid(Integer cid) {
+	
+		return topcategoryDao.findCid(cid);
+	}
+
+
+
+	public void delete(Topcategory topcategory) {
+		// TODO Auto-generated method stub
+		topcategoryDao.delete(topcategory);  
+	}
+
+
+//修改一级分类的方法
+	public void update(Topcategory topcategory) {
+		topcategoryDao.update(topcategory);
+		
+	}
+
+
    //保存一级分类的方法
 
 

@@ -13,15 +13,13 @@ import com.opensymphony.xwork2.ModelDriven;
  *
  */
 public class AdminTopcategoryAction  extends ActionSupport implements ModelDriven<Topcategory> {
+	//模型驱动使用的对象
 	private Topcategory topcategory = new Topcategory();
 	public Topcategory getModel() {
 		return topcategory;
 	}
 	// 注入一级分类的Service
 		public TopcategoryService topcategoryService;
-	
-
-
 	public void setTopcategoryService(TopcategoryService topcategoryService) {
 			this.topcategoryService = topcategoryService;
 		}
@@ -43,6 +41,26 @@ public class AdminTopcategoryAction  extends ActionSupport implements ModelDrive
 		
 		
 	}
+	//后台管理一级分类的删除
+	public  String delete() {
+		//接收cid，可以使用模型驱动，删除一级分类，必须根据id查询，最后再删除
+	topcategory=topcategoryService.findCid(topcategory.getCid());
+	topcategoryService.delete(topcategory);
+		return "delete";
+	}
+	
+	//
+	public String edit() {
+		
+		
+		topcategory=topcategoryService.findCid(topcategory.getCid());
+		return "edit";
+	}
 	
 	
+	public String update() {
+		topcategoryService.update(topcategory);
+		
+		return "update" ;
+	}
 }
