@@ -34,6 +34,10 @@ public class CategorySecondDao extends HibernateDaoSupport{
 		return list;
 	}
 
+	public void save(CategorySecond categorySecond) {
+		this.getHibernateTemplate().save(categorySecond);
+	}
+
 	
 
 }

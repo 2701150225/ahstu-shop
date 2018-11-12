@@ -47,4 +47,8 @@ public class CategorySecondService {
 			pageBean.setList(list);
 			return pageBean;
 		}
+		public void save(CategorySecond categorySecond) {
+		     categorySecondDao.save(categorySecond);
+			
+		}
 }

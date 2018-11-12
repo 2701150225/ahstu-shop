@@ -117,7 +117,7 @@
 
     <bean id="adminCategorySecondAction" class="com.ahstu.web.action.AdminCategorySecondAction" scope="prototype">
 		<property name="categorySecondService" ref="categorySecondService"/>
-		
+		<property name="topcategoryService" ref="topcategoryService"></property>
 	</bean>
 	
 	<!-- Service的配置 =========================== -->
