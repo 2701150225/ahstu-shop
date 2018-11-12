@@ -115,6 +115,11 @@
               <property name="topcategoryService" ref="topcategoryService"></property>	
 	</bean>
 
+    <bean id="adminCategorySecondAction" class="com.ahstu.web.action.AdminCategorySecondAction" scope="prototype">
+		<property name="categorySecondService" ref="categorySecondService"/>
+		
+	</bean>
+	
 	<!-- Service的配置 =========================== -->
 	<bean id="userService" class="com.ahstu.web.service.UserService">
 		<property name="userDao" ref="userDao" />
@@ -140,7 +145,10 @@
 		<property name="adminUserDao" ref="adminUserDao"></property>
 	</bean>
 
-
+  <bean id="categorySecondService" class="com.ahstu.web.service.CategorySecondService">
+ <property name="categorySecondDao" ref="categorySecondDao"/>
+	</bean>
+	
 	<!-- Dao的配置 =========================== -->
 	<bean id="userDao" class="com.ahstu.web.dao.UserDao">
 		<property name="sessionFactory" ref="sessionFactory" />
@@ -164,6 +172,10 @@
 	<bean id="adminUserDao" class="com.ahstu.web.dao.AdminUserDao">
 		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
-
+    
+    
+     <bean  id="categorySecondDao" class="com.ahstu.web.dao.CategorySecondDao">
+    <property name="sessionFactory" ref="sessionFactory"></property>
+     </bean>
 
 </beans>
