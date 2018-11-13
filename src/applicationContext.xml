@@ -114,11 +114,18 @@
 	<bean id="adminTopcategoryAction" class="com.ahstu.web.action.AdminTopcategoryAction"  scope="prototype">
               <property name="topcategoryService" ref="topcategoryService"></property>	
 	</bean>
-
+     <!-- 后台二级分类管理Action -->
     <bean id="adminCategorySecondAction" class="com.ahstu.web.action.AdminCategorySecondAction" scope="prototype">
 		<property name="categorySecondService" ref="categorySecondService"/>
 		<property name="topcategoryService" ref="topcategoryService"></property>
 	</bean>
+	
+	<!-- 后台商品管理的Action -->
+	<bean id="adminProductAction" class="com.ahstu.web.action.AdminProductAction" scope="prototype">
+	  <property name="productService" ref="productService"></property>
+	  <property name="categorySecondService" ref="categorySecondService"/>
+	</bean>
+
 	
 	<!-- Service的配置 =========================== -->
 	<bean id="userService" class="com.ahstu.web.service.UserService">
@@ -146,7 +153,7 @@
 	</bean>
 
   <bean id="categorySecondService" class="com.ahstu.web.service.CategorySecondService">
- <property name="categorySecondDao" ref="categorySecondDao"/>
+  <property name="categorySecondDao" ref="categorySecondDao"/>
 	</bean>
 	
 	<!-- Dao的配置 =========================== -->
