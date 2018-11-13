@@ -47,8 +47,28 @@ public class CategorySecondService {
 			pageBean.setList(list);
 			return pageBean;
 		}
+		
+		
 		public void save(CategorySecond categorySecond) {
 		     categorySecondDao.save(categorySecond);
 			
 		}
+		
+
+		// 业务层根据id查询二级分类
+		public CategorySecond findCsid(Integer csid) {
+			return categorySecondDao.findCsid(csid);
+		}
+
+		// 业务层的删除二级分类的操作
+		public void delete(CategorySecond categorySecond) {
+			categorySecondDao.delete(categorySecond);
+		}
+		//业务层查询所有二级分类的方法
+		public List<CategorySecond> findAll() {
+			return categorySecondDao.findAll();
+		}
+
+	
+
 }

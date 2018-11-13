@@ -66,5 +66,13 @@ public class AdminCategorySecondAction extends ActionSupport implements ModelDri
 			return "saveSuccess";
 		}
 
+	
+		
+		// 删除二级分类的方法:
+		public String delete() {
+			categorySecondService.findCsid(categorySecond.getCsid());
+			categorySecondService.delete(categorySecond);
+			return "deleteSuccess";
+		}
 
 }
