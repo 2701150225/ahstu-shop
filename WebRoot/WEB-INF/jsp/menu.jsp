@@ -20,6 +20,9 @@
 			<li id="headerRegister" class="headerRegister"
 				style="display: list-item;"><a href="${ pageContext.request.contextPath }/user_quit.action">退出</a>|
 			</li>
+			<li id="adminLogin" class="adminLogin"
+				<a href="${ pageContext.request.contextPath }/admin/">后台登录</a>|
+			</li>
 			</s:else>
 		
 			<li><a>会员中心</a> |</li>

@@ -120,6 +120,10 @@ public class ProductDao extends HibernateDaoSupport {
 
 	public void save(Product product) {
 		this.getHibernateTemplate().save(product);
+	}
+
+	public void delete(Product product) {
+		this.getHibernateTemplate().delete(product);
 		
 	}
 

@@ -4,7 +4,7 @@
     "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
    
    <hibernate-mapping >
-   <class  name="com.ahstu.web.pojo.Product" table="Product">
+   <class  name="com.ahstu.web.pojo.Product" table="product">
    
    <id name ="pid" >
    <generator class="native"></generator></id>

@@ -25,7 +25,7 @@
 						商品名称：
 					</td>
 					<td class="ta_01" bgColor="#ffffff">
-						<input type="text" name="pname" value="" class="bg"/>
+						<input type="text" name="pname" value="" id="userAction_save_do_logonName" class="bg"/>
 					</td>
 					<td width="18%" align="center" bgColor="#f5fafe" class="ta_01">
 						是否热门：
@@ -42,13 +42,13 @@
 						市场价格：
 					</td>
 					<td class="ta_01" bgColor="#ffffff">
-						<input type="text" name="market_price" value="" class="bg"/>
+						<input type="text" name="market_price" value="" id="userAction_save_do_logonName" class="bg"/>
 					</td>
 					<td width="18%" align="center" bgColor="#f5fafe" class="ta_01">
 						商城价格：
 					</td>
 					<td class="ta_01" bgColor="#ffffff">
-						<input type="text" name="shop_price" value="" class="bg"/>
+						<input type="text" name="shop_price" value="" id="userAction_save_do_logonName" class="bg"/>
 					</td>
 				</tr>
 				<tr>
@@ -82,7 +82,7 @@
 				<tr>
 					<td class="ta_01" style="WIDTH: 100%" align="center"
 						bgColor="#f5fafe" colSpan="4">
-						<button type="submit"  value="确定" class="button_ok">
+						<button type="submit" id="userAction_save_do_submit" value="确定" class="button_ok">
 							&#30830;&#23450;
 						</button>
 

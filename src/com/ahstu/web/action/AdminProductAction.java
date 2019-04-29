@@ -28,7 +28,7 @@ public class AdminProductAction extends ActionSupport implements ModelDriven<Pro
 
 	public Product getModel() {
 		// TODO Auto-generated method stub
-		return null;
+		return product;
 	}
 
 	// 接收page参数
@@ -50,6 +50,15 @@ public class AdminProductAction extends ActionSupport implements ModelDriven<Pro
 	public void setCategorySecondService(CategorySecondService categorySecondService) {
 		this.categorySecondService = categorySecondService;
 	}
+	
+public ProductService getProductService() {
+		return productService;
+	}
+
+	public CategorySecondService getCategorySecondService() {
+		return categorySecondService;
+	}
+
 
 	// 文件上传需要的三个属性:
 	private File upload;
@@ -67,6 +76,8 @@ public class AdminProductAction extends ActionSupport implements ModelDriven<Pro
 	public void setUploadContentType(String uploadContentType) {
 		this.uploadContentType = uploadContentType;
 	}
+	
+
 
 	// 后台管理查询商品的方法
 	public String findAll() {
@@ -88,9 +99,11 @@ public class AdminProductAction extends ActionSupport implements ModelDriven<Pro
 
 	// 保存商品的方法:
 	public String save() throws IOException {
+		
 		// 将提交的数据添加到数据库中.
 		product.setPdate(new Date());
-		// product.setImage(image);
+	
+	     // product.setImage(image);
 		if (upload != null) {
 			// 将商品图片上传到服务器上.
 			// 获得上传图片的服务器端路径.
@@ -102,7 +115,25 @@ public class AdminProductAction extends ActionSupport implements ModelDriven<Pro
 
 			product.setImage("products/" + uploadFileName);
 		}
+		
+	
 		productService.save(product);
 		return "saveSuccess";
+	}
+	
+	//删除商品的方法
+	public String delete() {
+	//先查后删除
+		productService.findPid(product.getPid());
+		//删除上传的图片
+		String path=product.getImage();
+		 if(path!=null) {
+		 String realPath=ServletActionContext.getServletContext().getRealPath("/" + path);
+		 File file=new File(realPath);
+		 file.delete();		
+		}
+		productService.delete(product);
+		
+		return "deleteSuccess";
 	}
 }

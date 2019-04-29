@@ -40,7 +40,7 @@
 		// 获得文件框值:
 		var username = document.getElementById("username").value;
 		// 1.创建异步交互对象
-		var xhr = createXmlHttp();
+		var xhr = createXmlHttp(); 
 		// 2.设置监听
 		xhr.onreadystatechange = function() {
 			if (xhr.readyState == 4) {
@@ -51,7 +51,7 @@
 		}
 		// 3.打开连接
 		xhr.open("GET",
-				"${pageContext.request.contextPath}/user_findByName.action?time="
+				"${pageContext.request.contextPath}/user_findName.action?time="
 						+ new Date().getTime() + "&username=" + username, true);
 		// 4.发送
 		xhr.send(null);

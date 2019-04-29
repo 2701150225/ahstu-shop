@@ -152,6 +152,14 @@ public class ProductService {
 		productDao.save(product);
 	}
 
+
+
+
+	public void delete(Product product) {
+	   productDao.delete(product);
+		
+	}
+
 	}
 
 
